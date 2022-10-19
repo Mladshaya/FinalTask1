@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static pageObject.pageElements.ProjectPageElements.*;
 
 public class ProjectPageSteps {
-    @Step
+    @Step("Открываем проект Test")
     public static void openProject() {
 
         buttonProject.shouldBe(Condition.enabled).click();
@@ -18,7 +18,7 @@ public class ProjectPageSteps {
         linkProject.shouldHave(Condition.exactText("Test")).click();
     }
 
-    @Step
+    @Step("Проверяем количество задач")
     public static void findTasksAmount() {
         tasksList.shouldBe(Condition.enabled).click();
         String text = tasksAmount.getText();
@@ -26,7 +26,7 @@ public class ProjectPageSteps {
         assertNotNull(amount);
     }
 
-    @Step
+    @Step("Находим задачу TestSelenium_bug")
     public static void searchTask() {
         taskFilter.shouldBe(Condition.enabled).click();
         buttonAllTasks.click();
@@ -34,14 +34,14 @@ public class ProjectPageSteps {
         searchField.pressEnter();
     }
 
-    @Step
+    @Step("Проверяем затронутую версию Version 2.0")
     public static void checkVersion() {
         String version = taskVersion.getText();
         assertEquals("Version 2.0", version);
 
     }
 
-    @Step
+    @Step("Проверяем статус задачи")
     public static void checkStatus() {
         taskStatus.shouldBe(visible);
         String status = taskStatus.getText();

@@ -1,5 +1,3 @@
-package pageObject.pageSteps.testJira;
-
 import hooks.WebHooks;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -19,7 +17,7 @@ public class TestJira extends WebHooks {
     @DisplayName("ТК 1. Авторизация")
     public void Test_1() {
         openUrl(getConfigurationValue("jiraUrl"));
-        authorization();
+        authorization(getConfigurationValue("login"), getConfigurationValue("password"));
     }
 
     @Test
@@ -27,7 +25,7 @@ public class TestJira extends WebHooks {
     @DisplayName("ТК 2. Открытие проекта")
     public void Test_2() {
         openUrl(getConfigurationValue("jiraUrl"));
-        authorization();
+        authorization(getConfigurationValue("login"), getConfigurationValue("password"));
         openProject();
     }
 
@@ -36,7 +34,7 @@ public class TestJira extends WebHooks {
     @DisplayName("ТК 3. Нахождение количества заведенных задач в проекте")
     public void Test_3() {
         openUrl(getConfigurationValue("jiraUrl"));
-        authorization();
+        authorization(getConfigurationValue("login"), getConfigurationValue("password"));
         openProject();
         findTasksAmount();
     }
@@ -46,7 +44,7 @@ public class TestJira extends WebHooks {
     @DisplayName("ТК 4. Проверка статуса и версии задачи")
     public void Test_4() {
         openUrl(getConfigurationValue("jiraUrl"));
-        authorization();
+        authorization(getConfigurationValue("login"), getConfigurationValue("password"));
         openProject();
         findTasksAmount();
         searchTask();
@@ -59,7 +57,7 @@ public class TestJira extends WebHooks {
     @DisplayName("ТК 5. Заведение дефекта и проверка смены статусов")
     public void Test_5() {
         openUrl(getConfigurationValue("jiraUrl"));
-        authorization();
+        authorization(getConfigurationValue("login"), getConfigurationValue("password"));
         openProject();
         findTasksAmount();
         searchTask();

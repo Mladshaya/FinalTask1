@@ -6,19 +6,18 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.open;
 import static pageObject.pageElements.AuthorizationPageElements.*;
-import static utils.Configuration.getConfigurationValue;
 
 public class AuthorizationPageSteps {
 
-    @Step
+    @Step("Открываем страницу по ссылке https://edujira.ifellow.ru/")
     public static void openUrl(String url) {
         open(url);
     }
 
-    @Step
-    public static void authorization() {
-        loginLane.shouldBe(visible).sendKeys(getConfigurationValue("login"));
-        passwordLane.sendKeys(getConfigurationValue("password"));
+    @Step("Авторизуемся в системе под пользователем shustova")
+    public static void authorization(String login, String password) {
+        loginLane.shouldBe(visible).sendKeys(login);
+        passwordLane.shouldBe(visible).sendKeys(password);
         buttonLogin.shouldBe(enabled).click();
     }
 }

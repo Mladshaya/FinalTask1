@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Condition.visible;
 
 public class CreateTaskSteps {
 
-    @Step
+    @Step("Создаем баг и проводим по статусам до закрытого")
     public static void createTask() {
         buttonCreate.click();
         issueTypeField.click();
